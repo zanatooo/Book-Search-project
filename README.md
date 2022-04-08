@@ -17,7 +17,7 @@ https://github.com/EPW80/Book-Search/deployments/activity_log?environment=github
 
 ## Mock-up
 
-![Password-Generator: Erik Williams](/assets/images/jsImage.png)
+![Book-Search: Erik Williams](/assets/images/bookSearch.png)
 
 ## Challenges 
 
