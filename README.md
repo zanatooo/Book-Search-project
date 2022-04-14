@@ -7,6 +7,7 @@
 * HTML
 * CSS
 * JavaScript
+* JQuery
 
 ## Website
 https://github.com/EPW80/Book-Search.git
