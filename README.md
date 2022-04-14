@@ -7,7 +7,6 @@
 - HTML
 - CSS
 - JavaScript
-- JQuery
 
 ## Website
 
@@ -23,6 +22,9 @@ https://github.com/EPW80/Book-Search/deployments/activity_log?environment=github
 ![Book-Search: Erik Williams](/assets/images/projectPhoto2.jpg)
 
 ## Challenges
+Some of the challenges include:
+<br />
+adding a "clear" button in order to clear the users search results
 
 ## Contribution:
 

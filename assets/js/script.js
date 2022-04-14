@@ -1,3 +1,4 @@
+document.getElementById("button").addEventListener("click", bookSearch, false);
 const submitButton = document.querySelector("#submit");
 const input = document.querySelector("#input");
 const errorSpan = document.querySelector("#error");
@@ -112,5 +113,3 @@ function bookSearch() {
     type: "GET",
   });
 }
-
-document.getElementById("button").addEventListener("click", bookSearch, false);
