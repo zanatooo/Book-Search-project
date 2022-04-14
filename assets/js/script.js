@@ -1,105 +1,116 @@
-var verify_existance = false;
+const submitButton = document.querySelector('#submit');
+const input = document.querySelector('#input');
+const errorSpan = document.querySelector('#error');
+const resultsContainer = document.querySelector('#results');
 
-function queryBooks() {
-  const QUERY = document.getElementById("query").value.toLowerCase();
-  var results = document.getElementById("res");
-  loader.setAttribute("style", "display: block;");
-  var query_display = document.getElementById("query-display");
+const endpoint = 'https://en.wikipedia.org/w/api.php?';
+const params = {
+    origin: '*',
+    format: 'json',
+    action: 'query',
+    prop: 'extracts',
+    exchars: 250,
+    exintro: true,
+    explaintext: true,
+    generator: 'search',
+    gsrlimit: 20,
+};
 
-  if (verify_existance == true) {
-    results.remove(results);
+const disableUi = () => {
+    input.disabled = true;
+    submitButton.disabled = true;
+};
 
-    results = document.createElement("div");
-    results.setAttribute("id", "res");
-    results.setAttribute("class", "results");
+const enableUi = () => {
+    input.disabled = false;
+    submitButton.disabled = false;
+};
 
-    loader = document.createElement("div");
-    loader.setAttribute("class", "loader");
-    loader.setAttribute("id", "load");
+const clearPreviousResults = () => {
+    resultsContainer.innerHTML = '';
+    errorSpan.innerHTML = '';
+};
 
-    query_display = document.createElement("div");
-    query_display.setAttribute("id", "query-display");
+const isInputEmpty = input => {
+    if (!input || input === '') return true;
+    return false;
+};
 
-    results.appendChild(loader);
-    results.appendChild(query_display);
+const showError = error => {
+    errorSpan.innerHTML = `🚨 ${error} 🚨`;
+};
 
-    document.getElementById("main").appendChild(results);
-  }
+const showResults = results => {
+    results.forEach(result => {
+        resultsContainer.innerHTML += `
+        <div class="results__item">
+            <a href="https://en.wikipedia.org/?curid=${result.pageId}" target="_blank" class="card animated bounceInUp">
+                <h2 class="results__item__title">${result.title}</h2>
+                <p class="results__item__intro">${result.intro}</p>
+            </a>
+        </div>
+    `;
+    });
+};
 
-  query_display.innerHTML = 'Related results for "' + QUERY + '"';
+const gatherData = pages => {
+    const results = Object.values(pages).map(page => ({
+        pageId: page.pageid,
+        title: page.title,
+        intro: page.extract,
+    }));
 
-  const URL = "https://www.googleapis.com/books/v1/volumes?q=" + QUERY;
+    showResults(results);
+};
 
-  var request = new XMLHttpRequest();
+const getData = async () => {
+    const userInput = input.value;
+    if (isInputEmpty(userInput)) return;
 
-  // Open a new connection, using the GET request on the URL endpoint
-  request.open("GET", URL, true);
+    params.gsrsearch = userInput;
+    clearPreviousResults();
+    disableUi();
 
-  request.onload = function () {
-    // Begin accessing JSON data here
+    try {
+        const { data } = await axios.get(endpoint, { params });
 
-    for (var i = 0; i < 10; i++) {
-      var data = JSON.parse(this.response);
-      // console.log(data)
-      var authors =
-        data["items"][i]["volumeInfo"]["authors"] || "No Author Disclosed";
-      var title =
-        data["items"][i]["volumeInfo"]["title"] || "No title Disclosed";
-      var publisher =
-        data["items"][i]["volumeInfo"]["publisher"] || "No publisher Disclosed";
-      try {
-        var thumbnail =
-          data["items"][i]["volumeInfo"]["imageLinks"]["thumbnail"];
-      } catch (err) {
-        var thumbnail =
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Georgia_404.svg/1125px-Georgia_404.svg.png";
-      }
-
-      var info =
-        data["items"][i]["volumeInfo"]["infoLink"] || "No info Disclosed";
-
-      card = document.createElement("div");
-      card.setAttribute("class", "card col-md-6");
-      card.setAttribute("style", "max-width: 32rem;");
-      card.setAttribute("id", "results");
-
-      const logo = document.createElement("img");
-      logo.src = thumbnail;
-      logo.className = "card-img-top";
-
-      card.appendChild(logo);
-
-      const card_body = document.createElement("div");
-      card_body.setAttribute("class", "card-body");
-
-      const card_title = document.createElement("h5");
-      card_title.setAttribute("class", "card-title");
-      card_title.innerHTML = title;
-
-      card_body.appendChild(card_title);
-
-      const card_text = document.createElement("p");
-      card_text.setAttribute("class", "card-text");
-      card_text.innerHTML = "By: " + authors + "<br>Published By: " + publisher;
-
-      card_body.appendChild(card_text);
-
-      const button = document.createElement("a");
-      button.setAttribute("class", "btn btn-primary btn-md");
-      button.setAttribute("href", info);
-      button.innerHTML = "See this Book";
-
-      card_body.appendChild(button);
-
-      card.appendChild(card_body);
-
-      results.appendChild(card);
+        if (data.error) throw new Error(data.error.info);
+        gatherData(data.query.pages);
+    } catch (error) {
+        showError(error);
+    } finally {
+        enableUi();
     }
-  };
+};
 
-  verify_existance = true;
-  // Send request
-  request.send();
-  document.getElementById("query").value = "";
-  setTimeout("loader.setAttribute('style', 'display: none;')", 1500);
+const handleKeyEvent = e => {
+    if (e.key === 'Enter') {
+        getData();
+    }
+};
+
+const registerEventHandlers = () => {
+    input.addEventListener('keydown', handleKeyEvent);
+    submitButton.addEventListener('click', getData);
+};
+
+registerEventHandlers();
+
+function bookSearch(){
+    var search = document.getElementById('search').value
+    document.getElementById('results').innerHTML = ""
+
+    $.ajax({
+        url:"https://www.googleapis.com/books/v1/volumes?q=" + search,
+        dataType: "json",
+
+        success: function(data) {
+            for(i = 0; i < data.items.length; i++){
+                results.innerHTML += "<h2>" + data.items[i].volumeInfo.title + "<h2>"
+            }
+        },
+        type: 'GET'
+    });
 }
+
+document.getElementById('button').addEventListener('click', bookSearch, false)
