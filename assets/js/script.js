@@ -1,48 +1,48 @@
-const submitButton = document.querySelector('#submit');
-const input = document.querySelector('#input');
-const errorSpan = document.querySelector('#error');
-const resultsContainer = document.querySelector('#results');
+const submitButton = document.querySelector("#submit");
+const input = document.querySelector("#input");
+const errorSpan = document.querySelector("#error");
+const resultsContainer = document.querySelector("#results");
 
-const endpoint = 'https://en.wikipedia.org/w/api.php?';
+const endpoint = "https://en.wikipedia.org/w/api.php?";
 const params = {
-    origin: '*',
-    format: 'json',
-    action: 'query',
-    prop: 'extracts',
-    exchars: 250,
-    exintro: true,
-    explaintext: true,
-    generator: 'search',
-    gsrlimit: 20,
+  origin: "*",
+  format: "json",
+  action: "query",
+  prop: "extracts",
+  exchars: 250,
+  exintro: true,
+  explaintext: true,
+  generator: "search",
+  gsrlimit: 20,
 };
 
 const disableUi = () => {
-    input.disabled = true;
-    submitButton.disabled = true;
+  input.disabled = true;
+  submitButton.disabled = true;
 };
 
 const enableUi = () => {
-    input.disabled = false;
-    submitButton.disabled = false;
+  input.disabled = false;
+  submitButton.disabled = false;
 };
 
 const clearPreviousResults = () => {
-    resultsContainer.innerHTML = '';
-    errorSpan.innerHTML = '';
+  resultsContainer.innerHTML = "";
+  errorSpan.innerHTML = "";
 };
 
-const isInputEmpty = input => {
-    if (!input || input === '') return true;
-    return false;
+const isInputEmpty = (input) => {
+  if (!input || input === "") return true;
+  return false;
 };
 
-const showError = error => {
-    errorSpan.innerHTML = `🚨 ${error} 🚨`;
+const showError = (error) => {
+  errorSpan.innerHTML = `🚨 ${error} 🚨`;
 };
 
-const showResults = results => {
-    results.forEach(result => {
-        resultsContainer.innerHTML += `
+const showResults = (results) => {
+  results.forEach((result) => {
+    resultsContainer.innerHTML += `
         <div class="results__item">
             <a href="https://en.wikipedia.org/?curid=${result.pageId}" target="_blank" class="card animated bounceInUp">
                 <h2 class="results__item__title">${result.title}</h2>
@@ -50,67 +50,67 @@ const showResults = results => {
             </a>
         </div>
     `;
-    });
+  });
 };
 
-const gatherData = pages => {
-    const results = Object.values(pages).map(page => ({
-        pageId: page.pageid,
-        title: page.title,
-        intro: page.extract,
-    }));
+const gatherData = (pages) => {
+  const results = Object.values(pages).map((page) => ({
+    pageId: page.pageid,
+    title: page.title,
+    intro: page.extract,
+  }));
 
-    showResults(results);
+  showResults(results);
 };
 
 const getData = async () => {
-    const userInput = input.value;
-    if (isInputEmpty(userInput)) return;
+  const userInput = input.value;
+  if (isInputEmpty(userInput)) return;
 
-    params.gsrsearch = userInput;
-    clearPreviousResults();
-    disableUi();
+  params.gsrsearch = userInput;
+  clearPreviousResults();
+  disableUi();
 
-    try {
-        const { data } = await axios.get(endpoint, { params });
+  try {
+    const { data } = await axios.get(endpoint, { params });
 
-        if (data.error) throw new Error(data.error.info);
-        gatherData(data.query.pages);
-    } catch (error) {
-        showError(error);
-    } finally {
-        enableUi();
-    }
+    if (data.error) throw new Error(data.error.info);
+    gatherData(data.query.pages);
+  } catch (error) {
+    showError(error);
+  } finally {
+    enableUi();
+  }
 };
 
-const handleKeyEvent = e => {
-    if (e.key === 'Enter') {
-        getData();
-    }
+const handleKeyEvent = (e) => {
+  if (e.key === "Enter") {
+    getData();
+  }
 };
 
 const registerEventHandlers = () => {
-    input.addEventListener('keydown', handleKeyEvent);
-    submitButton.addEventListener('click', getData);
+  input.addEventListener("keydown", handleKeyEvent);
+  submitButton.addEventListener("click", getData);
 };
 
 registerEventHandlers();
 
-function bookSearch(){
-    var search = document.getElementById('search').value
-    document.getElementById('results').innerHTML = ""
+function bookSearch() {
+  var search = document.getElementById("search").value;
+  document.getElementById("results").innerHTML = "";
 
-    $.ajax({
-        url:"https://www.googleapis.com/books/v1/volumes?q=" + search,
-        dataType: "json",
+  $.ajax({
+    url: "https://www.googleapis.com/books/v1/volumes?q=" + search,
+    dataType: "json",
 
-        success: function(data) {
-            for(i = 0; i < data.items.length; i++){
-                results.innerHTML += "<h2>" + data.items[i].volumeInfo.title + "<h2>"
-            }
-        },
-        type: 'GET'
-    });
+    success: function (data) {
+      for (i = 0; i < data.items.length; i++) {
+        results.innerHTML += "<h2>" + data.items[i].volumeInfo.title + "<h2>";
+      }
+    },
+    type: "GET",
+  });
 }
 
-document.getElementById('button').addEventListener('click', bookSearch, false)
+document.getElementById("button").addEventListener("click", bookSearch, false);
