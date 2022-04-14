@@ -25,7 +25,9 @@ https://github.com/EPW80/Book-Search/deployments/activity_log?environment=github
 
 
 ## Contribution:
-Crafted by [Erik Williams]
+Erik Williams
+Anthony Ledesma
+Mohammed Elzanaty
 
 ## License
 Erik Williams - 2022
