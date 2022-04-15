@@ -8,7 +8,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./assets/css/styles.css" />
-    <title>Book Search/General Reference search</title>
+    <title>Wiki-Book-Search</title>
   </head>
   <body>
     <div class="container">
@@ -19,14 +19,14 @@
           width="350"
           class="header__image"
         />
-        <h1 class="header__title">WIKIPEDIA</h1>
+        <h1 class="header__title">Wiki-Search</h1>
         <div class="header__search-bar">
           <input
             id="input"
-            aria-label="What do you want to know?"
+            aria-label="What would you like to know?"
             type="text"
             class="search-bar__input"
-            placeholder="What do you want to know?"
+            placeholder="What would you like to know?"
             autofocus
             required
           />
@@ -66,11 +66,16 @@
     </div>
   </body>
   <div class="book-app">
-    <title>Google books!</title>
+    <title>Google Books API!</title>
     <body>
-      <h1>Book Search</h1>
-      <input class="second-search" id="search" placeholder="Title or Author" />
-      <button id="button" type="button">Search</button>
+      <h1>Book Shelf</h1>
+      <input
+        class="second-search"
+        id="search"
+        placeholder="Enter a Title or Author"
+      />
+      <button class="button" id="button" type="button">Search</button>
+
       <div id="results-bar"></div>
     </body>
   </div>
@@ -87,8 +92,9 @@
     <meta charset="UTF-8" />
   </head>
   <body>
-    <h1>Clear</h1>
-    <button type="clear" value="clear" id="clearBtn">clear</button>
+    <button class="clear" type="clear" value="clear" id="clearBtn">
+      clear
+    </button>
   </body>
 </html>
 
