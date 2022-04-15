@@ -34,7 +34,7 @@ a {
   font-weight: 500;
   font-size: 2rem;
   padding-top: 25px;
-  margin: 100px;
+  margin: 135px;
   margin-bottom: 75px;
   margin-top: 50px;
 }
@@ -88,6 +88,7 @@ a {
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   cursor: pointer;
   overflow: hidden;
+
 }
 
 .results__error {
@@ -119,8 +120,7 @@ a {
   padding-bottom: 20px;
 }
 
-.results__bar {
-  height: 100%;
+.results-bar {
   width: 100%;
 }
 
@@ -129,10 +129,11 @@ a {
   justify-content: center;
   align-items: center;
   min-height: 50vh;
-  margin-top: 0rem;
+  margin-top: 4rem;
   /* background-image: url(https://media.istockphoto.com/photos/background-of-thick-closed-books-lying-in-large-piles-picture-id1205089021?b=1&k=20&m=1205089021&s=170667a&w=0&h=0CIKsNVcWSqtnXaQ8qyV9ykeyTYugU310UVIeWxSHmE=); */
 }
 .second-search {
+  font-size: 17px;
   margin: 20px;
   width: 20%;
   height: 40px;
@@ -148,7 +149,7 @@ a {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 25px;
+  font-size: 23px;
 }
 
 .clear {
@@ -160,4 +161,9 @@ a {
   text-decoration: none;
   display: inline-block;
   font-size: 25px;
+}
+
+/* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+@media screen and (max-width: 575px) {
+  
 }
