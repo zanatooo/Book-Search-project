@@ -25,6 +25,7 @@ https://github.com/EPW80/Book-Search/deployments/activity_log?environment=github
 
 ![Book-Search: Erik Williams](/assets/images/finalScreenShot.jpg)
 ![Book-Search: Erik Williams](/assets/images/finalScreenShot2.jpg)
+![Book-Search: Erik Williams](/assets/images/finalScreenShot3.jpg)
 
 ## Challenges
 Some of the challenges include:
