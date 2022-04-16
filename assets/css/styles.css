@@ -172,9 +172,9 @@ a {
 }
 
 /* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 600px) {
   [class*="col-"] {
     width: 100%;
-    display: inline-flex;
+    flex-direction: row;
   }
 }
