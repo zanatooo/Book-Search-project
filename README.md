@@ -34,7 +34,7 @@ adding a functional "clear" button
 <br />
 formatting results
 <br />
-## Contributers:
+## Contributors:
 
 Erik Williams
 <br />
