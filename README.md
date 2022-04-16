@@ -29,9 +29,9 @@ https://github.com/EPW80/Book-Search/deployments/activity_log?environment=github
 ## Challenges
 Some of the challenges include:
 <br />
-adding a "clear" button in order to clear the users search results
+adding a functional "clear" button 
 <br />
-as the program grew, bugs were difficult to locate
+formatting results
 <br />
 ## Contributers:
 
