@@ -19,7 +19,6 @@ a {
   align-items: center;
   min-height: 50vh;
   margin-top: 0rem;
-  
 }
 
 /* Style the header */
@@ -88,7 +87,6 @@ a {
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   cursor: pointer;
   overflow: hidden;
-
 }
 
 .results__items {
@@ -133,8 +131,7 @@ a {
 .results-bar {
   width: 100%;
   margin: 100px;
-  
-} 
+}
 
 .book-app {
   display: flex;
@@ -142,7 +139,6 @@ a {
   align-items: center;
   min-height: 50vh;
   margin-top: 4rem;
-  
 }
 .second-search {
   font-size: 17px;
@@ -177,5 +173,7 @@ a {
 
 /* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
 @media screen and (max-width: 575px) {
-  
+  [class*="col-"] {
+    width: 100%;
+  }
 }
