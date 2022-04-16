@@ -175,6 +175,10 @@ a {
 @media screen and (max-width: 600px) {
   [class*="col-"] {
     width: 100%;
-    flex-direction: row;
+   
+  }
+
+  .second-search {
+    display: inline-flex;
   }
 }
