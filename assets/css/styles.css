@@ -22,13 +22,11 @@ a {
 }
 
 .container-1 {
- 
   width: 40px;
   position: absolute;
   right: 0%;
   top: 180%;
   opacity: 0.6;
-  
 }
 
 /* Style the header */
