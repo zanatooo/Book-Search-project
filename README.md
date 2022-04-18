@@ -19,7 +19,7 @@ https://github.com/EPW80/Book-Search.git
 
 ## Deployment
 
-https://github.com/EPW80/Book-Search/deployments/activity_log?environment=github-pages
+https://epw80.github.io/Book-Search/
 
 ## Mock-up
 
