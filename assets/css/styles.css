@@ -1,8 +1,9 @@
+/* global styling */
 * {
   box-sizing: border-box;
   font-family: "Raleway", sans-serif;
 }
-
+/* body styling */
 body {
   background-color: #f2f3f4;
   font-size: 14px;
@@ -29,7 +30,7 @@ a {
   opacity: 0.6;
 }
 
-/* Style the header */
+/* style the header */
 .header__image {
   max-width: 410px;
   width: 100%;
@@ -56,7 +57,6 @@ h6 {
   justify-content: space-between;
   width: 400px;
   padding: 0px;
-  /* border: 0px solid #f4f4f4; */
   margin: 0px auto;
   box-shadow: 0px 0px 0px #f2f3f4;
   margin-left: 40px;
@@ -85,7 +85,7 @@ h6 {
 .search-bar__button:disabled {
   cursor: not-allowed;
 }
-
+/* user results styling */
 .results {
   display: flex;
   flex-wrap: wrap;
@@ -145,7 +145,7 @@ h6 {
   width: 100%;
   margin: 100px;
 }
-
+/* book shelf styling */
 .book-app {
   display: flex;
   justify-content: center;
@@ -172,7 +172,7 @@ h6 {
   display: inline-block;
   font-size: 23px;
 }
-
+/* clear user results styling */
 .clear {
   background-color: #f2f3f4;
   border: none;

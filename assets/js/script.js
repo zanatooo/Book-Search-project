@@ -1,6 +1,6 @@
-document.getElementById("button").addEventListener("click", bookSearch, false);
-const submitButton = document.querySelector("#submit");
-const input = document.querySelector("#input");
+document.getElementById("button").addEventListener("click", bookSearch, false); //getElementById() method returns an element with a specified value
+const submitButton = document.querySelector("#submit"); //constant for submit button
+const input = document.querySelector("#input"); // returns the first element that matches this CSS selector.
 const errorSpan = document.querySelector("#error");
 const resultsContainer = document.querySelector("#results");
 
@@ -96,7 +96,7 @@ const registerEventHandlers = () => {
 };
 
 registerEventHandlers();
-
+// google book search api
 function bookSearch() {
   var search = document.getElementById("search").value;
   document.getElementById("results").innerHTML = "";
