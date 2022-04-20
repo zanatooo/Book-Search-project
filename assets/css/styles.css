@@ -55,7 +55,7 @@ h6 {
 .header__search-bar {
   display: flex;
   justify-content: space-between;
-  width: 400px;
+  width: 360px;
   padding: 0px;
   margin: 0px auto;
   box-shadow: 0px 0px 0px #f2f3f4;
@@ -185,8 +185,13 @@ h6 {
 }
 
 /* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 768px) {
   [class*="col-"] {
     width: 100%;
   }
+
+  body {
+    width: 100%;
+  }
 }
+
