@@ -1,6 +1,7 @@
 # Book Search.
 
 ## Purpose
+
 The purpose of this application is to offer a quick and easy way to search
 for the users choices. This application will allow the user to search for the books of their choices
 using a Google Books API. Also, the user will also be able to use Wikipedia API to search general reference material.
@@ -30,9 +31,10 @@ https://epw80.github.io/Book-Search/
 ![Book-Search: Erik Williams](/assets/images/finalScreenShot3.jpg)
 
 ## Challenges
+
 -Some of the challenges include:
 <br />
--Adding a functional "clear" button 
+-Adding a functional "clear" button
 <br />
 -Formatting results
 <br />
@@ -40,6 +42,7 @@ https://epw80.github.io/Book-Search/
 <br />
 
 ## Successes
+
 -Added functional clear button for client to clear results from
 <br />
 -Allows client to search for books and general references of their choice using Google Books and Wikipedia’s API.
