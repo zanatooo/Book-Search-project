@@ -34,6 +34,15 @@ adding a functional "clear" button
 <br />
 formatting results
 <br />
+
+## Successes
+Added functional clear button for client to clear results from
+<br />
+Allows client to search for books and general references of their choice using Google Books and Wikipedia’s API.
+These APIs work by crawling billions of pages using their own web crawlers (Bot that is typically operated by search engines). They navigate the web by downloading web pages and following links on these pages to discover new content that has been made available.
+<br />
+Return results quickly by scanning the Internet continuously and indexing every page it finds.
+<br />
 ## Contributors:
 
 Erik Williams
