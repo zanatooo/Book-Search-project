@@ -12,6 +12,8 @@ the user will be able to clear results with button located at the bottom of the 
 - HTML
 - CSS
 - JavaScript
+- Google Books API
+- Wikipedia API
 
 ## Website
 
@@ -34,6 +36,8 @@ https://epw80.github.io/Book-Search/
 <br />
 -Formatting results
 <br />
+-Adding watermark and keeping it from changing format
+<br />
 
 ## Successes
 -Added functional clear button for client to clear results from
@@ -43,6 +47,7 @@ These APIs work by crawling billions of pages using their own web crawlers (Bot 
 <br />
 -Return results quickly by scanning the Internet continuously and indexing every page it finds.
 <br />
+
 ## Contributors:
 
 Erik Williams
