@@ -24,7 +24,7 @@ const disableUi = () => {
 };
 //create the function to do enable for selector.
 const enableUi = () => {
-  input.disabled = false;  //set the enable attribute to true.
+  input.disabled = false; //set the enable attribute to true.
   submitButton.disabled = false;
 };
 
@@ -43,7 +43,8 @@ const showError = (error) => {
 };
 
 const showResults = (results) => {
-  results.forEach((result) => { //run the for each loop
+  results.forEach((result) => {
+    //run the for each loop
     resultsContainer.innerHTML += `
         <div class="results__item">
             <a href="https://en.wikipedia.org/?curid=${result.pageId}" target="_blank" class="card animated bounceInUp">
@@ -56,7 +57,8 @@ const showResults = (results) => {
 };
 //set the value one by one
 const gatherData = (pages) => {
-  const results = Object.values(pages).map((page) => ({ //iterate the objects one by one and set the value
+  const results = Object.values(pages).map((page) => ({
+    //iterate the objects one by one and set the value
     pageId: page.pageid,
     title: page.title,
     intro: page.extract,
@@ -73,7 +75,7 @@ const getData = async () => {
   clearPreviousResults(); //call the function
   disableUi(); // call the function
   // use of try catch
-  // The try...catch statement marks a try block and a catch block. 
+  // The try...catch statement marks a try block and a catch block.
   // If the code in the try block throws an exception then the code in the catch block will be executed.
   try {
     const { data } = await axios.get(endpoint, { params });
@@ -88,7 +90,8 @@ const getData = async () => {
 };
 
 const handleKeyEvent = (e) => {
-  if (e.key === "Enter") { // check the key if it is enetered or not
+  if (e.key === "Enter") {
+    // check the key if it is enetered or not
     getData(); // call the function
   }
 };
